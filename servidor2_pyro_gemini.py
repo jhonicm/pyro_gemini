@@ -11,9 +11,7 @@ def servidor3(respuesta):
 class GeminiClient2:
     def lista_productos(self, respuesta, barrio):
         respuesta2 = modelo.generate_content(f"Necesito que con la lista de ingredientes de la siguiete receta, busques los mejores lugares para comprar cada producto en {barrio} Ecuador, debes especificar especificamente el nombre de los lugares: {respuesta}")
-    
         respuesta_l=servidor3(respuesta+"\n"+respuesta2.text)
-        #print(respuesta2.text)
         print(type(respuesta_l))    
         return respuesta_l
 daemon = Pyro4.Daemon(host="0.0.0.0", port=9091)
