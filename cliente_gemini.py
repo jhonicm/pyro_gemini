@@ -1,8 +1,11 @@
 import Pyro4
 import base64
 
-client = Pyro4.Proxy("PYRO:GeminiClient@192.168.100.66:9090")
+client = Pyro4.Proxy("PYRO:GeminiClient@172.17.44.128:9090")
 
+print("=" * 50)
+print("🍳  SERVIDOR DE RECETAS CON IA GEMINI  🍲")
+print("=" * 50)
 input_text = input("Escribe el platillo: ")
 input_barrio = input("Escribe el sector donde vives: ")
 
