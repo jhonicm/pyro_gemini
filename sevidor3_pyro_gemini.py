@@ -10,7 +10,7 @@ ruta_completa = ""
 
 def crear_pdf(datos_json):
     global ruta_completa
-# Clase personalizada para el PDF
+
     class PDF(FPDF):
         def header(self):
             self.set_font('Arial', 'B', 16)
@@ -28,20 +28,20 @@ def crear_pdf(datos_json):
                 if numbered:
                     self.multi_cell(0, 8, f"{idx}. {item}", align='L')
                 else:
-                    self.multi_cell(0, 8, f"- {item}", align='L')  # Cambié "•" por "-"
+                    self.multi_cell(0, 8, f"- {item}", align='L')  
             self.ln(5)
 
         def lugares_compra(self, lugares_dict):
             self.set_font('Arial', '', 12)
             for producto, lugar in lugares_dict.items():
-                self.multi_cell(0, 8, f"- {producto}: {lugar}", align='L')  # Cambié "•" por "-"
+                self.multi_cell(0, 8, f"- {producto}: {lugar}", align='L') 
             self.ln(5)
 
-    # Crear PDF
+    
     pdf = PDF()
     pdf.add_page()
 
-    # Secciones
+    
     pdf.chapter_title("Ingredientes:")
     pdf.chapter_body(datos_json['Ingredientes'])
 
@@ -53,7 +53,7 @@ def crear_pdf(datos_json):
 
     filename = "Encebollado_Ecuatoriano.pdf"
 
-    # Guardar PDF
+    
     pdf.output(filename)
     ruta_completa = os.path.abspath(filename)
     print(f"✅ PDF guardado en:\n{ruta_completa}")
@@ -74,7 +74,7 @@ class GeminiClient3:
             f"Necesito que con toda la informacion me crees un informe en JSON puro (sin texto adicional) con la siguiente estructura: {{'Titulo': str, 'Ingredientes': list, 'Lugares de compra': dict, 'preparacion': list}}. Del siguiente texto: {respuesta}"
         )
 
-    # Busca el primer "{" y el último "}" para limpiar basura fuera del JSON
+    
         try:
             start = respuesta.text.find('{')
             end = respuesta.text.rfind('}') + 1
