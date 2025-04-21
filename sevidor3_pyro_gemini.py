@@ -81,12 +81,12 @@ class GeminiClient3:
             json_clean = respuesta.text[start:end]
 
             informe_dict = json.loads(json_clean)
-            print("✅ JSON válido recibido y convertido a objeto Python.")
+            print("JSON válido recibido y convertido a objeto Python.")
         except json.JSONDecodeError as e:
-            print(f"❌ Error al decodificar JSON: {e}")
+            print(f"Error al decodificar JSON: {e}")
             return None
         except Exception as e:
-            print(f"⚠️ Otro error inesperado: {e}")
+            print(f"⚠Otro error inesperado: {e}")
             return None
         crear_pdf(informe_dict)
         informe_pla = obtener_bytes()
