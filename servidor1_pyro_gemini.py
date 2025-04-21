@@ -1,7 +1,7 @@
 import google.generativeai as genai
 import Pyro4
 
-genai.configure(api_key="AIzaSyCsrBqrDdsYCInT9TXFm80Z1Mu2sI0Ki5E")
+genai.configure(api_key="")
 modelo = genai.GenerativeModel('gemini-2.0-flash')
 
 def servidor2(respuesta_texto, respuesta_barrio):
