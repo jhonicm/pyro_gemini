@@ -17,8 +17,6 @@ def servidor2(respuesta_texto, respuesta_barrio):
 @Pyro4.expose
 class GeminiClient:
     def consulta(self, input_text, input_barrio):
-        print(f"Recibida consulta: '{input_text}'")
-        
         respuesta = modelo.generate_content(f"Necesito que me des la lista de ingredientes y la receta breve de {input_text}")
         respuesta_texto = respuesta.text
         return servidor2(respuesta_texto, input_barrio)
