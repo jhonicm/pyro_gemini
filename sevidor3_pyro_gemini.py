@@ -4,7 +4,7 @@ import os
 import json
 from fpdf import FPDF
 
-genai.configure(api_key="AIzaSyCo6gYseI2v8YEAbJlD-ZV-wNWNUaajIJ8")
+genai.configure(api_key="")
 modelo = genai.GenerativeModel('gemini-2.0-flash')
 ruta_completa = ""
 

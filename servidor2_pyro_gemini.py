@@ -1,7 +1,7 @@
 import google.generativeai as genai
 import Pyro4
 
-genai.configure(api_key="AIzaSyCa2UkZrsAH1sOYInx99Obbm4evg1ntP3Y")
+genai.configure(api_key="")
 modelo = genai.GenerativeModel('gemini-2.0-flash')
 def servidor3(respuesta):
     client = Pyro4.Proxy("PYRO:GeminiClient3@100.70.161.85:9092")
