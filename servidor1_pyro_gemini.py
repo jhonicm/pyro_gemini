@@ -9,8 +9,6 @@ def servidor2(respuesta_texto, respuesta_barrio):
         client = Pyro4.Proxy("PYRO:GeminiClient2@100.89.141.78:9091")
         print("Conectado exitosamente")
         resultado = client.lista_productos(respuesta_texto, respuesta_barrio)
-        
-        print("Respuesta recibida del servidor")
         return resultado
     except Pyro4.errors.CommunicationError as e:
         print(f"Error al conectar : {e}")
